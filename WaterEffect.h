@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <list>
 #include <vector>
 #include <SDL3/SDL.h>
@@ -6,83 +6,83 @@
 
 /**
  * @struct WaterRippleParams
- * @brief »ù´¡²¨ÎÆĞ§¹û²ÎÊı
- * @details ¶¨Òåµ¥¸ö²¨ÎÆµÄÎïÀíÊôĞÔºÍÎ»ÖÃĞÅÏ¢
+ * @brief åŸºç¡€æ³¢çº¹æ•ˆæœå‚æ•°
+ * @details å®šä¹‰å•ä¸ªæ³¢çº¹çš„ç‰©ç†å±æ€§å’Œä½ç½®ä¿¡æ¯
  */
 struct WaterRippleParams
 {
-	float amplitude = 0.0f;				///< ²¨ÎÆÕñ·ù£¨Ó°Ïì²¨¶¯Ç¿¶È£©
-	float frequency = 0.0f;				///< ²¨ÎÆÆµÂÊ£¨¿ØÖÆ²¨¶¯ËÙ¶È£©
-	float density = 0.0f;				///< ²¨ÎÆÃÜ¶È£¨Ó°Ïì´«²¥Ë¥¼õ£©
-	SDL_FPoint pos = { 0.0f, 0.0f };		///< ²¨ÎÆÖĞĞÄÎ»ÖÃ×ø±ê
+	float amplitude = 0.0f;				///< æ³¢çº¹æŒ¯å¹…ï¼ˆå½±å“æ³¢åŠ¨å¼ºåº¦ï¼‰
+	float frequency = 0.0f;				///< æ³¢çº¹é¢‘ç‡ï¼ˆæ§åˆ¶æ³¢åŠ¨é€Ÿåº¦ï¼‰
+	float density = 0.0f;				///< æ³¢çº¹å¯†åº¦ï¼ˆå½±å“ä¼ æ’­è¡°å‡ï¼‰
+	SDL_FPoint pos = { 0.0f, 0.0f };		///< æ³¢çº¹ä¸­å¿ƒä½ç½®åæ ‡
 };
 
 /**
  * @struct WaterClickRippleParams
- * @brief µã»÷´¥·¢µÄ²¨ÎÆ²ÎÊı
- * @details °üº¬¶¯Ì¬²¨ÎÆµÄÊ±¼äÊôĞÔºÍ»ù´¡ÎïÀí²ÎÊı
+ * @brief ç‚¹å‡»è§¦å‘çš„æ³¢çº¹å‚æ•°
+ * @details åŒ…å«åŠ¨æ€æ³¢çº¹çš„æ—¶é—´å±æ€§å’ŒåŸºç¡€ç‰©ç†å‚æ•°
  */
 struct WaterClickRippleParams
 {
-	WaterRippleParams rippleParams;		///< »ù´¡²¨ÎÆÎïÀí²ÎÊı
-	float startTime = 0.0f;				///< ²¨ÎÆÆğÊ¼Ê±¼ä£¨µ¥Î»£ºÃë£©
-	float lifeTime = 0.0f;				///< ²¨ÎÆÉúÃüÖÜÆÚ£¨µ¥Î»£ºÃë£©
+	WaterRippleParams rippleParams;		///< åŸºç¡€æ³¢çº¹ç‰©ç†å‚æ•°
+	float startTime = 0.0f;				///< æ³¢çº¹èµ·å§‹æ—¶é—´ï¼ˆå•ä½ï¼šç§’ï¼‰
+	float lifeTime = 0.0f;				///< æ³¢çº¹ç”Ÿå‘½å‘¨æœŸï¼ˆå•ä½ï¼šç§’ï¼‰
 };
 
 /**
  * @struct WaterWaveParams
- * @brief Ö±Ïß´«²¥²¨ÎÆ²ÎÊı
- * @details ¶¨ÒåÑØÌØ¶¨·½Ïò´«²¥µÄ²¨ÎÆÊôĞÔ
+ * @brief ç›´çº¿ä¼ æ’­æ³¢çº¹å‚æ•°
+ * @details å®šä¹‰æ²¿ç‰¹å®šæ–¹å‘ä¼ æ’­çš„æ³¢çº¹å±æ€§
  */
 struct WaterWaveParams
 {
-	float amplitude = 0.0f;				///< ²¨¶¯Ç¿¶È
-	float frequency = 0.0f;				///< ²¨¶¯ÆµÂÊ
-	float density = 0.0f;				///< ²¨ÎÆÃÜ¶ÈÏµÊı£¨ÖµÔ½´ó²¨ÎÆÔ½ÃÜ¼¯£©
-	float angle = 0.0f;					///< ´«²¥·½Ïò½Ç¶È£¨»¡¶ÈÖÆ£©
-	float phi = 0.0f;					///< ÏàÎ»Æ«ÒÆÁ¿
+	float amplitude = 0.0f;				///< æ³¢åŠ¨å¼ºåº¦
+	float frequency = 0.0f;				///< æ³¢åŠ¨é¢‘ç‡
+	float density = 0.0f;				///< æ³¢çº¹å¯†åº¦ç³»æ•°ï¼ˆå€¼è¶Šå¤§æ³¢çº¹è¶Šå¯†é›†ï¼‰
+	float angle = 0.0f;					///< ä¼ æ’­æ–¹å‘è§’åº¦ï¼ˆå¼§åº¦åˆ¶ï¼‰
+	float phi = 0.0f;					///< ç›¸ä½åç§»é‡
 };
 
 /**
  * @struct WaterWaveCalculatedParams
- * @brief Ô¤¼ÆËãµÄ²¨ÎÆ²ÎÊı
- * @details ´æ´¢Ö±Ïß²¨ÎÆµÄ·¨ÏòÁ¿µÈÔ¤¼ÆËã½á¹û
+ * @brief é¢„è®¡ç®—çš„æ³¢çº¹å‚æ•°
+ * @details å­˜å‚¨ç›´çº¿æ³¢çº¹çš„æ³•å‘é‡ç­‰é¢„è®¡ç®—ç»“æœ
  */
 struct WaterWaveCalculatedParams
 {
-	float A = 0.0f;						///< ·¨ÏòÁ¿µÄX·ÖÁ¿£¨cos(angle)£©
-	float B = 0.0f;						///< ·¨ÏòÁ¿µÄY·ÖÁ¿£¨-sin(angle)£©
-	WaterWaveParams basicParams;			///< »ù´¡²¨ÎÆ²ÎÊı
+	float A = 0.0f;						///< æ³•å‘é‡çš„Xåˆ†é‡ï¼ˆcos(angle)ï¼‰
+	float B = 0.0f;						///< æ³•å‘é‡çš„Yåˆ†é‡ï¼ˆ-sin(angle)ï¼‰
+	WaterWaveParams basicParams;			///< åŸºç¡€æ³¢çº¹å‚æ•°
 };
 
 /**
  * @struct WaterLightParams
- * @brief ¹âÕÕĞ§¹û²ÎÊı
- * @details ¿ØÖÆ²¨ÎÆµÄÍ¸Ã÷¶È±ä»¯ºÍ¹âÕÕÄ£ÄâĞ§¹û
+ * @brief å…‰ç…§æ•ˆæœå‚æ•°
+ * @details æ§åˆ¶æ³¢çº¹çš„é€æ˜åº¦å˜åŒ–å’Œå…‰ç…§æ¨¡æ‹Ÿæ•ˆæœ
  */
 struct WaterLightParams
 {
-	float minDistance = 0.0f;			///< ×îĞ¡Î»ÒÆãĞÖµ£¨µÍÓÚ´ËÖµ²»¼ÆËãÍ¸Ã÷¶È±ä»¯£©
-	float defaultAlpha = 1.0f;			///< Ä¬ÈÏÍ¸Ã÷¶ÈÖµ
-	float minAlpha = 0.0f;				///< ×îĞ¡Í¸Ã÷¶ÈÖµ
-	float decay = 10.0f;					///< Í¸Ã÷¶ÈË¥¼õÏµÊı£¨ÖµÔ½´óË¥¼õÔ½Âı£©
-	float Angle = 0.0f;					///< ¹âÕÕ½Ç¶È£¨»¡¶ÈÖÆ£©
+	float minDistance = 0.0f;			///< æœ€å°ä½ç§»é˜ˆå€¼ï¼ˆä½äºæ­¤å€¼ä¸è®¡ç®—é€æ˜åº¦å˜åŒ–ï¼‰
+	float defaultAlpha = 1.0f;			///< é»˜è®¤é€æ˜åº¦å€¼
+	float minAlpha = 0.0f;				///< æœ€å°é€æ˜åº¦å€¼
+	float decay = 10.0f;					///< é€æ˜åº¦è¡°å‡ç³»æ•°ï¼ˆå€¼è¶Šå¤§è¡°å‡è¶Šæ…¢ï¼‰
+	float Angle = 0.0f;					///< å…‰ç…§è§’åº¦ï¼ˆå¼§åº¦åˆ¶ï¼‰
 };
 
 /**
  * @struct WaterEffectParams
- * @brief Ë®²¨ÎÆĞ§¹ûÈ«¾Ö²ÎÊıÈİÆ÷
- * @details ÕûºÏËùÓĞ²¨ÎÆĞ§¹ûµÄÅäÖÃ²ÎÊıºÍäÖÈ¾ÉèÖÃ
+ * @brief æ°´æ³¢çº¹æ•ˆæœå…¨å±€å‚æ•°å®¹å™¨
+ * @details æ•´åˆæ‰€æœ‰æ³¢çº¹æ•ˆæœçš„é…ç½®å‚æ•°å’Œæ¸²æŸ“è®¾ç½®
  */
 struct WaterEffectParams
 {
-	int gridSize = 30;								///< Íø¸ñ·Ö±æÂÊ£¨ÖµÔ½´ó²¨ÎÆÔ½¾«Ï¸£¬ĞÔÄÜ¿ªÏúÔ½´ó£©
-	std::list<WaterWaveCalculatedParams> waves;		///< Ö±Ïß²¨ÎÆ²ÎÊıÁĞ±í
-	std::list<WaterRippleParams> fixedRipples;		///< ¹Ì¶¨Î»ÖÃ²¨ÎÆÁĞ±í
-	int maxClickRipple = 5;							///< ×î´óÍ¬Ê±´æÔÚµÄµã»÷²¨ÎÆÊıÁ¿
-	std::list<WaterClickRippleParams> clickRipples;	///< »îÔ¾µÄµã»÷²¨ÎÆÁĞ±í
-	WaterClickRippleParams defaultClickRipple;		///< Ä¬ÈÏµã»÷²¨ÎÆ²ÎÊıÄ£°å
-	WaterLightParams light;							///< ¹âÕÕĞ§¹û²ÎÊı
+	int gridSize = 30;								///< ç½‘æ ¼åˆ†è¾¨ç‡ï¼ˆå€¼è¶Šå¤§æ³¢çº¹è¶Šç²¾ç»†ï¼Œæ€§èƒ½å¼€é”€è¶Šå¤§ï¼‰
+	std::list<WaterWaveCalculatedParams> waves;		///< ç›´çº¿æ³¢çº¹å‚æ•°åˆ—è¡¨
+	std::list<WaterRippleParams> fixedRipples;		///< å›ºå®šä½ç½®æ³¢çº¹åˆ—è¡¨
+	int maxClickRipple = 5;							///< æœ€å¤§åŒæ—¶å­˜åœ¨çš„ç‚¹å‡»æ³¢çº¹æ•°é‡
+	std::list<WaterClickRippleParams> clickRipples;	///< æ´»è·ƒçš„ç‚¹å‡»æ³¢çº¹åˆ—è¡¨
+	WaterClickRippleParams defaultClickRipple;		///< é»˜è®¤ç‚¹å‡»æ³¢çº¹å‚æ•°æ¨¡æ¿
+	WaterLightParams light;							///< å…‰ç…§æ•ˆæœå‚æ•°
 };
 
 class WaterEffect
@@ -90,104 +90,104 @@ class WaterEffect
 public:
 
 	/**
-	 * @brief ¹¹Ôìº¯ÊıÊµÏÖ
-	 * @param window SDL´°¿Ú¶ÔÏó
-	 * @param renderer SDLäÖÈ¾Æ÷¶ÔÏó
+	 * @brief æ„é€ å‡½æ•°å®ç°
+	 * @param window SDLçª—å£å¯¹è±¡
+	 * @param renderer SDLæ¸²æŸ“å™¨å¯¹è±¡
 	 */
 	WaterEffect(SDL_Window* window, SDL_Renderer* renderer);
 
 	/**
-	 * @brief ×¼±¸ÌØĞ§äÖÈ¾»­²¼
-	 * @details ±£´æµ±Ç°äÖÈ¾Ä¿±ê£¬ÉèÖÃË®²¨ÎÆÎÆÀíÎªäÖÈ¾Ä¿±ê²¢Çå¿Õ»­²¼
+	 * @brief å‡†å¤‡ç‰¹æ•ˆæ¸²æŸ“ç”»å¸ƒ
+	 * @details ä¿å­˜å½“å‰æ¸²æŸ“ç›®æ ‡ï¼Œè®¾ç½®æ°´æ³¢çº¹çº¹ç†ä¸ºæ¸²æŸ“ç›®æ ‡å¹¶æ¸…ç©ºç”»å¸ƒ
 	 */
 	void setupEffectCanvas();
 
 	/**
-	 * @brief äÖÈ¾Ë®²¨ÎÆĞ§¹û
-	 * @param time µ±Ç°Ê±¼ä£¨Ãë£©
-	 * @details 1. »Ö¸´Ô­Ê¼äÖÈ¾Ä¿±ê 2. ¸üĞÂ¶¥µãÎ»ÖÃ 3. äÖÈ¾²¨ÎÆ¼¸ºÎÌå
+	 * @brief æ¸²æŸ“æ°´æ³¢çº¹æ•ˆæœ
+	 * @param time å½“å‰æ—¶é—´ï¼ˆç§’ï¼‰
+	 * @details 1. æ¢å¤åŸå§‹æ¸²æŸ“ç›®æ ‡ 2. æ›´æ–°é¡¶ç‚¹ä½ç½® 3. æ¸²æŸ“æ³¢çº¹å‡ ä½•ä½“
 	 */
 	void renderEffect(float time);
 
 	/**
-	 * @brief Ó¦ÓÃÔ¤Éè²ÎÊıÅäÖÃ
-	 * @details ÅäÖÃ°üº¬Á½×éÖ±Ïß²¨ÎÆ+Ò»×é¹Ì¶¨²¨ÎÆµÄÄ¬ÈÏĞ§¹û
+	 * @brief åº”ç”¨é¢„è®¾å‚æ•°é…ç½®
+	 * @details é…ç½®åŒ…å«ä¸¤ç»„ç›´çº¿æ³¢çº¹+ä¸€ç»„å›ºå®šæ³¢çº¹çš„é»˜è®¤æ•ˆæœ
 	 */
 	void applyPresetParams();
 
 
 	/**
-	 * @brief ³õÊ¼»¯Ë®²¨ÎÆÍø¸ñ
-	 * @details ¸ù¾İ¸ø¶¨´óĞ¡ºÍÍø¸ñ·Ö±æÂÊ´´½¨¶¥µãÊı¾İ£º
-	 * 1. ´´½¨äÖÈ¾ÎÆÀí
-	 * 2. ¼ÆËãÍø¸ñ¶¥µãÎ»ÖÃ
-	 * 3. Éú³ÉÈı½ÇÃæË÷Òı
-	 * @note »æÖÆÇøÓò³ß´ç±ä»¯ºóĞèÒªÖØĞÂµ÷ÓÃ´Ëº¯Êı
+	 * @brief åˆå§‹åŒ–æ°´æ³¢çº¹ç½‘æ ¼
+	 * @details æ ¹æ®ç»™å®šå¤§å°å’Œç½‘æ ¼åˆ†è¾¨ç‡åˆ›å»ºé¡¶ç‚¹æ•°æ®ï¼š
+	 * 1. åˆ›å»ºæ¸²æŸ“çº¹ç†
+	 * 2. è®¡ç®—ç½‘æ ¼é¡¶ç‚¹ä½ç½®
+	 * 3. ç”Ÿæˆä¸‰è§’é¢ç´¢å¼•
+	 * @note ç»˜åˆ¶åŒºåŸŸå°ºå¯¸å˜åŒ–åéœ€è¦é‡æ–°è°ƒç”¨æ­¤å‡½æ•°
 	 */
 	void initGrid(int width, int height);
 
 	/**
-	 * @brief ÖØÖÃËùÓĞË®²¨ÎÆ²ÎÊıÎªÄ¬ÈÏÖµ
-	 * @details Çå³ıËùÓĞ×Ô¶¨Òå²¨ÎÆÅäÖÃ£¨°üÀ¨Ö±Ïß²¨ÎÆ¡¢¹Ì¶¨²¨ÎÆºÍµã»÷²¨ÎÆ£©£¬»Ö¸´Îª³õÊ¼×´Ì¬
+	 * @brief é‡ç½®æ‰€æœ‰æ°´æ³¢çº¹å‚æ•°ä¸ºé»˜è®¤å€¼
+	 * @details æ¸…é™¤æ‰€æœ‰è‡ªå®šä¹‰æ³¢çº¹é…ç½®ï¼ˆåŒ…æ‹¬ç›´çº¿æ³¢çº¹ã€å›ºå®šæ³¢çº¹å’Œç‚¹å‡»æ³¢çº¹ï¼‰ï¼Œæ¢å¤ä¸ºåˆå§‹çŠ¶æ€
 	 */
 	void clearParams();
 
 	/**
-	 * @brief ÉèÖÃË®²¨ÎÆÍø¸ñµÄ·Ö±æÂÊ
-	 * @param gridSize Íø¸ñ³ß´ç£¨±ØĞë´óÓÚ0£©
-	 * @details ĞŞ¸ÄÍø¸ñ´óĞ¡ºó»á×Ô¶¯ÖØĞÂ³õÊ¼»¯Íø¸ñ¶¥µãÊı¾İ
-	 * @note Íø¸ñ³ß´ç¹ı´ó»áÓ°ÏìĞÔÄÜ£¬¹ıĞ¡»á½µµÍ²¨ÎÆĞ§¹û¾«¶È
+	 * @brief è®¾ç½®æ°´æ³¢çº¹ç½‘æ ¼çš„åˆ†è¾¨ç‡
+	 * @param gridSize ç½‘æ ¼å°ºå¯¸ï¼ˆå¿…é¡»å¤§äº0ï¼‰
+	 * @details ä¿®æ”¹ç½‘æ ¼å¤§å°åä¼šè‡ªåŠ¨é‡æ–°åˆå§‹åŒ–ç½‘æ ¼é¡¶ç‚¹æ•°æ®
+	 * @note ç½‘æ ¼å°ºå¯¸è¿‡å¤§ä¼šå½±å“æ€§èƒ½ï¼Œè¿‡å°ä¼šé™ä½æ³¢çº¹æ•ˆæœç²¾åº¦
 	 */
 	void setGridSize(int gridSize);
 
 	/**
-	 * @brief Ìí¼ÓÖ±Ïß´«²¥µÄ²¨ÎÆĞ§¹û
-	 * @param params Ö±Ïß²¨ÎÆ²ÎÊıÅäÖÃ
-	 * @details ¸ù¾İ½Ç¶È²ÎÊı¼ÆËã·¨ÏòÁ¿²¢´æ´¢Ô¤¼ÆËãÊı¾İ
+	 * @brief æ·»åŠ ç›´çº¿ä¼ æ’­çš„æ³¢çº¹æ•ˆæœ
+	 * @param params ç›´çº¿æ³¢çº¹å‚æ•°é…ç½®
+	 * @details æ ¹æ®è§’åº¦å‚æ•°è®¡ç®—æ³•å‘é‡å¹¶å­˜å‚¨é¢„è®¡ç®—æ•°æ®
 	 */
 	void addWave(WaterWaveParams params);
 
 	/**
-	 * @brief Ìí¼Ó¹Ì¶¨Î»ÖÃµÄ²¨ÎÆÔ´
-	 * @param params ¹Ì¶¨²¨ÎÆ²ÎÊıÅäÖÃ
-	 * @details ¹Ì¶¨²¨ÎÆ»á³ÖĞø²úÉú»·ĞÎ²¨ÎÆĞ§¹û
+	 * @brief æ·»åŠ å›ºå®šä½ç½®çš„æ³¢çº¹æº
+	 * @param params å›ºå®šæ³¢çº¹å‚æ•°é…ç½®
+	 * @details å›ºå®šæ³¢çº¹ä¼šæŒç»­äº§ç”Ÿç¯å½¢æ³¢çº¹æ•ˆæœ
 	 */
 	void addFixedRipple(WaterRippleParams params);
 
 	/**
-	 * @brief ÉèÖÃÄ¬ÈÏµÄµã»÷²¨ÎÆ²ÎÊıÄ£°å
-	 * @param params µã»÷²¨ÎÆÄ¬ÈÏÅäÖÃ
-	 * @details ´ËÅäÖÃ½«ÓÃÓÚºóĞøÍ¨¹ı addDefaultClickRipple Ìí¼ÓµÄ²¨ÎÆ
+	 * @brief è®¾ç½®é»˜è®¤çš„ç‚¹å‡»æ³¢çº¹å‚æ•°æ¨¡æ¿
+	 * @param params ç‚¹å‡»æ³¢çº¹é»˜è®¤é…ç½®
+	 * @details æ­¤é…ç½®å°†ç”¨äºåç»­é€šè¿‡ addDefaultClickRipple æ·»åŠ çš„æ³¢çº¹
 	 */
 	void setDefaultClickRippleParams(WaterClickRippleParams params);
 
 	/**
-	 * @brief Ìí¼Ó×Ô¶¨Òåµã»÷²¨ÎÆĞ§¹û
-	 * @param params µã»÷²¨ÎÆÍêÕû²ÎÊıÅäÖÃ
-	 * @details Ö±½ÓÊ¹ÓÃ´«Èë²ÎÊı´´½¨µã»÷²¨ÎÆ£¬²»ÊÜÄ¬ÈÏ²ÎÊıÓ°Ïì
+	 * @brief æ·»åŠ è‡ªå®šä¹‰ç‚¹å‡»æ³¢çº¹æ•ˆæœ
+	 * @param params ç‚¹å‡»æ³¢çº¹å®Œæ•´å‚æ•°é…ç½®
+	 * @details ç›´æ¥ä½¿ç”¨ä¼ å…¥å‚æ•°åˆ›å»ºç‚¹å‡»æ³¢çº¹ï¼Œä¸å—é»˜è®¤å‚æ•°å½±å“
 	 */
 	void addClickRipple(WaterClickRippleParams params);
 
 	/**
-	 * @brief Ê¹ÓÃÄ¬ÈÏ²ÎÊıÌí¼Óµã»÷²¨ÎÆ
-	 * @param x µã»÷Î»ÖÃµÄX×ø±ê
-	 * @param y µã»÷Î»ÖÃµÄY×ø±ê
-	 * @param startTime ²¨ÎÆÆğÊ¼Ê±¼ä£¨Ãë£©
-	 * @details »ùÓÚÔ¤ÉèµÄÄ¬ÈÏ²ÎÊıÔÚÖ¸¶¨Î»ÖÃÉú³Éµã»÷²¨ÎÆ
+	 * @brief ä½¿ç”¨é»˜è®¤å‚æ•°æ·»åŠ ç‚¹å‡»æ³¢çº¹
+	 * @param x ç‚¹å‡»ä½ç½®çš„Xåæ ‡
+	 * @param y ç‚¹å‡»ä½ç½®çš„Yåæ ‡
+	 * @param startTime æ³¢çº¹èµ·å§‹æ—¶é—´ï¼ˆç§’ï¼‰
+	 * @details åŸºäºé¢„è®¾çš„é»˜è®¤å‚æ•°åœ¨æŒ‡å®šä½ç½®ç”Ÿæˆç‚¹å‡»æ³¢çº¹
 	 */
 	void addDefaultClickRipple(float x, float y, float startTime);
 
 	/**
-	 * @brief ÉèÖÃÑÕÉ«Ğ§¹û²ÎÊı
-	 * @param params ÑÕÉ«ÅäÖÃ²ÎÊı
-	 * @details ¿ØÖÆ²¨ÎÆµÄÍ¸Ã÷¶È±ä»¯Ğ§¹û£¨¹âÕÕÄ£Äâ£©
+	 * @brief è®¾ç½®é¢œè‰²æ•ˆæœå‚æ•°
+	 * @param params é¢œè‰²é…ç½®å‚æ•°
+	 * @details æ§åˆ¶æ³¢çº¹çš„é€æ˜åº¦å˜åŒ–æ•ˆæœï¼ˆå…‰ç…§æ¨¡æ‹Ÿï¼‰
 	 */
 	void setLightParams(WaterLightParams params);
 
 	/**
-	 * @brief ÉèÖÃ×î´óµã»÷²¨ÎÆÊıÁ¿
-	 * @param count ÔÊĞíÍ¬Ê±´æÔÚµÄ×î´óµã»÷²¨ÎÆÊı
-	 * @details µ±³¬¹ı´ËÊıÁ¿Ê±£¬ĞÂµÄµã»÷²¨ÎÆ½«±»ºöÂÔ
+	 * @brief è®¾ç½®æœ€å¤§ç‚¹å‡»æ³¢çº¹æ•°é‡
+	 * @param count å…è®¸åŒæ—¶å­˜åœ¨çš„æœ€å¤§ç‚¹å‡»æ³¢çº¹æ•°
+	 * @details å½“è¶…è¿‡æ­¤æ•°é‡æ—¶ï¼Œæ–°çš„ç‚¹å‡»æ³¢çº¹å°†è¢«å¿½ç•¥
 	 */
 	void setMaxClickRipple(int count);
 
@@ -205,14 +205,14 @@ private:
 	std::vector<int> _indices;
 
 	/**
-	 * @brief ¸üĞÂ²¨ÎÆĞ§¹û£¨Ã¿Ö¡µ÷ÓÃ£©
-	 * @param time µ±Ç°Ê±¼ä£¨Ãë£©
-	 * @details ¼ÆËãËùÓĞ²¨ÎÆµÄµş¼ÓĞ§¹û²¢¸üĞÂ¶¥µãÎ»ÖÃ£º
-	 * 1. ¼ÆËãÖ±Ïß²¨ÎÆÆ«ÒÆ
-	 * 2. ¼ÆËã¹Ì¶¨²¨ÎÆÆ«ÒÆ
-	 * 3. ¸üĞÂµã»÷²¨ÎÆ£¨º¬ÉúÃüÖÜÆÚ¹ÜÀí£©
-	 * 4. Ó¦ÓÃ±ß½çÔ¼Êø
-	 * 5. ¼ÆËã¶¥µãÍ¸Ã÷¶È±ä»¯
+	 * @brief æ›´æ–°æ³¢çº¹æ•ˆæœï¼ˆæ¯å¸§è°ƒç”¨ï¼‰
+	 * @param time å½“å‰æ—¶é—´ï¼ˆç§’ï¼‰
+	 * @details è®¡ç®—æ‰€æœ‰æ³¢çº¹çš„å åŠ æ•ˆæœå¹¶æ›´æ–°é¡¶ç‚¹ä½ç½®ï¼š
+	 * 1. è®¡ç®—ç›´çº¿æ³¢çº¹åç§»
+	 * 2. è®¡ç®—å›ºå®šæ³¢çº¹åç§»
+	 * 3. æ›´æ–°ç‚¹å‡»æ³¢çº¹ï¼ˆå«ç”Ÿå‘½å‘¨æœŸç®¡ç†ï¼‰
+	 * 4. åº”ç”¨è¾¹ç•Œçº¦æŸ
+	 * 5. è®¡ç®—é¡¶ç‚¹é€æ˜åº¦å˜åŒ–
 	 */
 	void _update(float time);
 

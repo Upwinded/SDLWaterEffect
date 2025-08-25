@@ -1,12 +1,12 @@
-#define _USE_MATH_DEFINES 
+ï»¿#define _USE_MATH_DEFINES 
 #include <cmath>
 #include "WaterEffect.h"
 
 
 /**
- * @brief ¹¹Ôìº¯ÊıÊµÏÖ
- * @param window SDL´°¿Ú¶ÔÏó
- * @param renderer SDLäÖÈ¾Æ÷¶ÔÏó
+ * @brief æ„é€ å‡½æ•°å®ç°
+ * @param window SDLçª—å£å¯¹è±¡
+ * @param renderer SDLæ¸²æŸ“å™¨å¯¹è±¡
  */
 WaterEffect::WaterEffect(SDL_Window* window, SDL_Renderer* renderer)
 {
@@ -15,8 +15,8 @@ WaterEffect::WaterEffect(SDL_Window* window, SDL_Renderer* renderer)
 }
 
 /**
- * @brief ×¼±¸ÌØĞ§äÖÈ¾»­²¼
- * @details ±£´æµ±Ç°äÖÈ¾Ä¿±ê£¬ÉèÖÃË®²¨ÎÆÎÆÀíÎªäÖÈ¾Ä¿±ê²¢Çå¿Õ»­²¼
+ * @brief å‡†å¤‡ç‰¹æ•ˆæ¸²æŸ“ç”»å¸ƒ
+ * @details ä¿å­˜å½“å‰æ¸²æŸ“ç›®æ ‡ï¼Œè®¾ç½®æ°´æ³¢çº¹çº¹ç†ä¸ºæ¸²æŸ“ç›®æ ‡å¹¶æ¸…ç©ºç”»å¸ƒ
  */
 void WaterEffect::setupEffectCanvas()
 {
@@ -30,9 +30,9 @@ void WaterEffect::setupEffectCanvas()
 }
 
 /**
- * @brief äÖÈ¾Ë®²¨ÎÆĞ§¹û
- * @param time µ±Ç°Ê±¼ä£¨Ãë£©
- * @details 1. »Ö¸´Ô­Ê¼äÖÈ¾Ä¿±ê 2. ¸üĞÂ¶¥µãÎ»ÖÃ 3. äÖÈ¾²¨ÎÆ¼¸ºÎÌå
+ * @brief æ¸²æŸ“æ°´æ³¢çº¹æ•ˆæœ
+ * @param time å½“å‰æ—¶é—´ï¼ˆç§’ï¼‰
+ * @details 1. æ¢å¤åŸå§‹æ¸²æŸ“ç›®æ ‡ 2. æ›´æ–°é¡¶ç‚¹ä½ç½® 3. æ¸²æŸ“æ³¢çº¹å‡ ä½•ä½“
  */
 void WaterEffect::renderEffect(float time)
 {
@@ -42,8 +42,8 @@ void WaterEffect::renderEffect(float time)
 }
 
 /**
- * @brief Ó¦ÓÃÔ¤Éè²ÎÊıÅäÖÃ
- * @details ÅäÖÃ°üº¬Á½×éÖ±Ïß²¨ÎÆ+Ò»×é¹Ì¶¨²¨ÎÆµÄÄ¬ÈÏĞ§¹û
+ * @brief åº”ç”¨é¢„è®¾å‚æ•°é…ç½®
+ * @details é…ç½®åŒ…å«ä¸¤ç»„ç›´çº¿æ³¢çº¹+ä¸€ç»„å›ºå®šæ³¢çº¹çš„é»˜è®¤æ•ˆæœ
  */
 void WaterEffect::applyPresetParams()
 {
@@ -51,9 +51,9 @@ void WaterEffect::applyPresetParams()
 
 	setMaxClickRipple(5);
 	WaterRippleParams fixedRippleParams;
-	fixedRippleParams.amplitude = 35.0f;
+	fixedRippleParams.amplitude = 25.0f;
 	fixedRippleParams.density = 0.015f;
-	fixedRippleParams.frequency = 3.0f;
+	fixedRippleParams.frequency = 5.0f;
 	fixedRippleParams.pos = { -100.0f, 600.0f };
 	addFixedRipple(fixedRippleParams);
 
@@ -73,7 +73,7 @@ void WaterEffect::applyPresetParams()
 	addWave(waveParams);
 
 	WaterLightParams lightParams;
-	lightParams.decay = 3.0f;
+	lightParams.decay = 10.0f;
 	lightParams.defaultAlpha = 0.9f;
 	lightParams.Angle = 5 * M_PI / 4;
 	lightParams.minAlpha = 0.85f;
@@ -91,8 +91,8 @@ void WaterEffect::applyPresetParams()
 }
 
 /**
- * @brief ÖØÖÃËùÓĞË®²¨ÎÆ²ÎÊıÎªÄ¬ÈÏÖµ
- * @details Çå³ıËùÓĞ×Ô¶¨Òå²¨ÎÆÅäÖÃ£¨°üÀ¨Ö±Ïß²¨ÎÆ¡¢¹Ì¶¨²¨ÎÆºÍµã»÷²¨ÎÆ£©£¬»Ö¸´Îª³õÊ¼×´Ì¬
+ * @brief é‡ç½®æ‰€æœ‰æ°´æ³¢çº¹å‚æ•°ä¸ºé»˜è®¤å€¼
+ * @details æ¸…é™¤æ‰€æœ‰è‡ªå®šä¹‰æ³¢çº¹é…ç½®ï¼ˆåŒ…æ‹¬ç›´çº¿æ³¢çº¹ã€å›ºå®šæ³¢çº¹å’Œç‚¹å‡»æ³¢çº¹ï¼‰ï¼Œæ¢å¤ä¸ºåˆå§‹çŠ¶æ€
  */
 void WaterEffect::clearParams()
 {
@@ -101,10 +101,10 @@ void WaterEffect::clearParams()
 }
 
 /**
- * @brief ÉèÖÃË®²¨ÎÆÍø¸ñµÄ·Ö±æÂÊ
- * @param gridSize Íø¸ñ³ß´ç£¨±ØĞë´óÓÚ0£©
- * @details ĞŞ¸ÄÍø¸ñ´óĞ¡ºó»á×Ô¶¯ÖØĞÂ³õÊ¼»¯Íø¸ñ¶¥µãÊı¾İ
- * @note Íø¸ñ³ß´ç¹ı´ó»áÓ°ÏìĞÔÄÜ£¬¹ıĞ¡»á½µµÍ²¨ÎÆĞ§¹û¾«¶È
+ * @brief è®¾ç½®æ°´æ³¢çº¹ç½‘æ ¼çš„åˆ†è¾¨ç‡
+ * @param gridSize ç½‘æ ¼å°ºå¯¸ï¼ˆå¿…é¡»å¤§äº0ï¼‰
+ * @details ä¿®æ”¹ç½‘æ ¼å¤§å°åä¸ä¼šè‡ªåŠ¨é‡æ–°åˆå§‹åŒ–ç½‘æ ¼é¡¶ç‚¹æ•°æ®
+ * @note ç½‘æ ¼å°ºå¯¸è¿‡å¤§ä¼šå½±å“æ€§èƒ½ï¼Œè¿‡å°ä¼šé™ä½æ³¢çº¹æ•ˆæœç²¾åº¦
  */
 void WaterEffect::setGridSize(int gridSize)
 {
@@ -117,9 +117,9 @@ void WaterEffect::setGridSize(int gridSize)
 }
 
 /**
- * @brief Ìí¼ÓÖ±Ïß´«²¥µÄ²¨ÎÆĞ§¹û
- * @param params Ö±Ïß²¨ÎÆ²ÎÊıÅäÖÃ
- * @details ¸ù¾İ½Ç¶È²ÎÊı¼ÆËã·¨ÏòÁ¿²¢´æ´¢Ô¤¼ÆËãÊı¾İ
+ * @brief æ·»åŠ ç›´çº¿ä¼ æ’­çš„æ³¢çº¹æ•ˆæœ
+ * @param params ç›´çº¿æ³¢çº¹å‚æ•°é…ç½®
+ * @details æ ¹æ®è§’åº¦å‚æ•°è®¡ç®—æ³•å‘é‡å¹¶å­˜å‚¨é¢„è®¡ç®—æ•°æ®
  */
 void WaterEffect::addWave(WaterWaveParams params)
 {
@@ -132,9 +132,9 @@ void WaterEffect::addWave(WaterWaveParams params)
 }
 
 /**
- * @brief Ìí¼Ó¹Ì¶¨Î»ÖÃµÄ²¨ÎÆÔ´
- * @param params ¹Ì¶¨²¨ÎÆ²ÎÊıÅäÖÃ
- * @details ¹Ì¶¨²¨ÎÆ»á³ÖĞø²úÉú»·ĞÎ²¨ÎÆĞ§¹û
+ * @brief æ·»åŠ å›ºå®šä½ç½®çš„æ³¢çº¹æº
+ * @param params å›ºå®šæ³¢çº¹å‚æ•°é…ç½®
+ * @details å›ºå®šæ³¢çº¹ä¼šæŒç»­äº§ç”Ÿç¯å½¢æ³¢çº¹æ•ˆæœ
  */
 void WaterEffect::addFixedRipple(WaterRippleParams params)
 {
@@ -142,9 +142,9 @@ void WaterEffect::addFixedRipple(WaterRippleParams params)
 }
 
 /**
- * @brief ÉèÖÃÄ¬ÈÏµÄµã»÷²¨ÎÆ²ÎÊıÄ£°å
- * @param params µã»÷²¨ÎÆÄ¬ÈÏÅäÖÃ
- * @details ´ËÅäÖÃ½«ÓÃÓÚºóĞøÍ¨¹ı addDefaultClickRipple Ìí¼ÓµÄ²¨ÎÆ
+ * @brief è®¾ç½®é»˜è®¤çš„ç‚¹å‡»æ³¢çº¹å‚æ•°æ¨¡æ¿
+ * @param params ç‚¹å‡»æ³¢çº¹é»˜è®¤é…ç½®
+ * @details æ­¤é…ç½®å°†ç”¨äºåç»­é€šè¿‡ addDefaultClickRipple æ·»åŠ çš„æ³¢çº¹
  */
 void WaterEffect::setDefaultClickRippleParams(WaterClickRippleParams params)
 {
@@ -152,9 +152,9 @@ void WaterEffect::setDefaultClickRippleParams(WaterClickRippleParams params)
 }
 
 /**
- * @brief Ìí¼Ó×Ô¶¨Òåµã»÷²¨ÎÆĞ§¹û
- * @param params µã»÷²¨ÎÆÍêÕû²ÎÊıÅäÖÃ
- * @details Ö±½ÓÊ¹ÓÃ´«Èë²ÎÊı´´½¨µã»÷²¨ÎÆ£¬²»ÊÜÄ¬ÈÏ²ÎÊıÓ°Ïì
+ * @brief æ·»åŠ è‡ªå®šä¹‰ç‚¹å‡»æ³¢çº¹æ•ˆæœ
+ * @param params ç‚¹å‡»æ³¢çº¹å®Œæ•´å‚æ•°é…ç½®
+ * @details ç›´æ¥ä½¿ç”¨ä¼ å…¥å‚æ•°åˆ›å»ºç‚¹å‡»æ³¢çº¹ï¼Œä¸å—é»˜è®¤å‚æ•°å½±å“
  */
 void WaterEffect::addClickRipple(WaterClickRippleParams params)
 {
@@ -166,11 +166,11 @@ void WaterEffect::addClickRipple(WaterClickRippleParams params)
 }
 
 /**
- * @brief Ê¹ÓÃÄ¬ÈÏ²ÎÊıÌí¼Óµã»÷²¨ÎÆ
- * @param x µã»÷Î»ÖÃµÄX×ø±ê
- * @param y µã»÷Î»ÖÃµÄY×ø±ê
- * @param startTime ²¨ÎÆÆğÊ¼Ê±¼ä£¨Ãë£©
- * @details »ùÓÚÔ¤ÉèµÄÄ¬ÈÏ²ÎÊıÔÚÖ¸¶¨Î»ÖÃÉú³Éµã»÷²¨ÎÆ
+ * @brief ä½¿ç”¨é»˜è®¤å‚æ•°æ·»åŠ ç‚¹å‡»æ³¢çº¹
+ * @param x ç‚¹å‡»ä½ç½®çš„Xåæ ‡
+ * @param y ç‚¹å‡»ä½ç½®çš„Yåæ ‡
+ * @param startTime æ³¢çº¹èµ·å§‹æ—¶é—´ï¼ˆç§’ï¼‰
+ * @details åŸºäºé¢„è®¾çš„é»˜è®¤å‚æ•°åœ¨æŒ‡å®šä½ç½®ç”Ÿæˆç‚¹å‡»æ³¢çº¹
  */
 void WaterEffect::addDefaultClickRipple(float x, float y, float startTime)
 {
@@ -182,9 +182,9 @@ void WaterEffect::addDefaultClickRipple(float x, float y, float startTime)
 }
 
 /**
- * @brief ÉèÖÃ¹âÏßĞ§¹û²ÎÊı
- * @param params ¹âÏßÅäÖÃ²ÎÊı
- * @details ¿ØÖÆ²¨ÎÆµÄÍ¸Ã÷¶È±ä»¯Ğ§¹û£¨¹âÕÕÄ£Äâ£©
+ * @brief è®¾ç½®å…‰çº¿æ•ˆæœå‚æ•°
+ * @param params å…‰çº¿é…ç½®å‚æ•°
+ * @details æ§åˆ¶æ³¢çº¹çš„é€æ˜åº¦å˜åŒ–æ•ˆæœï¼ˆå…‰ç…§æ¨¡æ‹Ÿï¼‰
  */
 void WaterEffect::setLightParams(WaterLightParams params)
 {
@@ -192,9 +192,9 @@ void WaterEffect::setLightParams(WaterLightParams params)
 }
 
 /**
- * @brief ÉèÖÃ×î´óµã»÷²¨ÎÆÊıÁ¿
- * @param count ÔÊĞíÍ¬Ê±´æÔÚµÄ×î´óµã»÷²¨ÎÆÊı
- * @details µ±³¬¹ı´ËÊıÁ¿Ê±£¬ĞÂµÄµã»÷²¨ÎÆ½«±»ºöÂÔ
+ * @brief è®¾ç½®æœ€å¤§ç‚¹å‡»æ³¢çº¹æ•°é‡
+ * @param count å…è®¸åŒæ—¶å­˜åœ¨çš„æœ€å¤§ç‚¹å‡»æ³¢çº¹æ•°
+ * @details å½“è¶…è¿‡æ­¤æ•°é‡æ—¶ï¼Œæ–°çš„ç‚¹å‡»æ³¢çº¹å°†è¢«å¿½ç•¥
  */
 void WaterEffect::setMaxClickRipple(int count)
 {
@@ -202,14 +202,14 @@ void WaterEffect::setMaxClickRipple(int count)
 }
 
 /**
- * @brief ¸üĞÂ²¨ÎÆĞ§¹û£¨Ã¿Ö¡µ÷ÓÃ£©
- * @param time µ±Ç°Ê±¼ä£¨Ãë£©
- * @details ¼ÆËãËùÓĞ²¨ÎÆµÄµş¼ÓĞ§¹û²¢¸üĞÂ¶¥µãÎ»ÖÃ£º
- * 1. ¼ÆËãÖ±Ïß²¨ÎÆÆ«ÒÆ
- * 2. ¼ÆËã¹Ì¶¨²¨ÎÆÆ«ÒÆ
- * 3. ¸üĞÂµã»÷²¨ÎÆ£¨º¬ÉúÃüÖÜÆÚ¹ÜÀí£©
- * 4. Ó¦ÓÃ±ß½çÔ¼Êø
- * 5. ¼ÆËã¶¥µãÍ¸Ã÷¶È±ä»¯
+ * @brief æ›´æ–°æ³¢çº¹æ•ˆæœï¼ˆæ¯å¸§è°ƒç”¨ï¼‰
+ * @param time å½“å‰æ—¶é—´ï¼ˆç§’ï¼‰
+ * @details è®¡ç®—æ‰€æœ‰æ³¢çº¹çš„å åŠ æ•ˆæœå¹¶æ›´æ–°é¡¶ç‚¹ä½ç½®ï¼š
+ * 1. è®¡ç®—ç›´çº¿æ³¢çº¹åç§»
+ * 2. è®¡ç®—å›ºå®šæ³¢çº¹åç§»
+ * 3. æ›´æ–°ç‚¹å‡»æ³¢çº¹ï¼ˆå«ç”Ÿå‘½å‘¨æœŸç®¡ç†ï¼‰
+ * 4. åº”ç”¨è¾¹ç•Œçº¦æŸ
+ * 5. è®¡ç®—é¡¶ç‚¹é€æ˜åº¦å˜åŒ–
  */
 void WaterEffect::_update(float time)
 {
@@ -314,12 +314,12 @@ void WaterEffect::_update(float time)
 }
 
 /**
- * @brief ³õÊ¼»¯Ë®²¨ÎÆÍø¸ñ
- * @details ¸ù¾İ¸ø¶¨´óĞ¡ºÍÍø¸ñ·Ö±æÂÊ´´½¨¶¥µãÊı¾İ£º
- * 1. ´´½¨äÖÈ¾ÎÆÀí
- * 2. ¼ÆËãÍø¸ñ¶¥µãÎ»ÖÃ
- * 3. Éú³ÉÈı½ÇÃæË÷Òı
- * @note »æÖÆÇøÓò³ß´ç±ä»¯ºóĞèÒªÖØĞÂµ÷ÓÃ´Ëº¯Êı
+ * @brief åˆå§‹åŒ–æ°´æ³¢çº¹ç½‘æ ¼
+ * @details æ ¹æ®ç»™å®šå¤§å°å’Œç½‘æ ¼åˆ†è¾¨ç‡åˆ›å»ºé¡¶ç‚¹æ•°æ®ï¼š
+ * 1. åˆ›å»ºæ¸²æŸ“çº¹ç†
+ * 2. è®¡ç®—ç½‘æ ¼é¡¶ç‚¹ä½ç½®
+ * 3. ç”Ÿæˆä¸‰è§’é¢ç´¢å¼•
+ * @note ç»˜åˆ¶åŒºåŸŸå°ºå¯¸å˜åŒ–åéœ€è¦é‡æ–°è°ƒç”¨æ­¤å‡½æ•°
  */
 void WaterEffect::initGrid(int width, int height)
 {
