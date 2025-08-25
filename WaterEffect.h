@@ -66,7 +66,7 @@ struct WaterLightParams
 	float defaultAlpha = 1.0f;			///< 默认透明度值
 	float minAlpha = 0.0f;				///< 最小透明度值
 	float decay = 10.0f;					///< 透明度衰减系数（值越大衰减越慢）
-	float Angle = 0.0f;					///< 光照角度（弧度制）
+	float angle = 0.0f;					///< 光照角度（弧度制）
 };
 
 /**
@@ -118,27 +118,22 @@ public:
 
 	/**
 	 * @brief 初始化水波纹网格
+	 * @param gridSize 网格尺寸（必须大于0）
+	 * @param width 绘制区域宽度
+	 * @param height 绘制区域高度
 	 * @details 根据给定大小和网格分辨率创建顶点数据：
 	 * 1. 创建渲染纹理
 	 * 2. 计算网格顶点位置
 	 * 3. 生成三角面索引
 	 * @note 绘制区域尺寸变化后需要重新调用此函数
 	 */
-	void initGrid(int width, int height);
+	void initGrid(int gridSize, int width, int height);
 
 	/**
 	 * @brief 重置所有水波纹参数为默认值
 	 * @details 清除所有自定义波纹配置（包括直线波纹、固定波纹和点击波纹），恢复为初始状态
 	 */
 	void clearParams();
-
-	/**
-	 * @brief 设置水波纹网格的分辨率
-	 * @param gridSize 网格尺寸（必须大于0）
-	 * @details 修改网格大小后不会自动重新初始化网格顶点数据，需手动调用initGrid
-	 * @note 网格尺寸过大会影响性能，过小会降低波纹效果精度
-	 */
-	void setGridSize(int gridSize);
 
 	/**
 	 * @brief 添加直线传播的波纹效果

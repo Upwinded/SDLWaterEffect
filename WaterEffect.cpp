@@ -51,21 +51,21 @@ void WaterEffect::applyPresetParams()
 
 	setMaxClickRipple(5);
 	WaterRippleParams fixedRippleParams;
-	fixedRippleParams.amplitude = 25.0f;
+	fixedRippleParams.amplitude = 15.0f;
 	fixedRippleParams.density = 0.015f;
 	fixedRippleParams.frequency = 5.0f;
 	fixedRippleParams.pos = { -100.0f, 600.0f };
 	addFixedRipple(fixedRippleParams);
 
 	WaterWaveParams waveParams;
-	waveParams.amplitude = 10.0f;
+	waveParams.amplitude = 5.0f;
 	waveParams.angle = 5 * M_PI / 6;
 	waveParams.density = 0.02f;
 	waveParams.frequency = 8.0f;
 	waveParams.phi = 1.0f;
 	addWave(waveParams);
 
-	waveParams.amplitude = 15.0f;
+	waveParams.amplitude = 8.0f;
 	waveParams.angle = 7 * M_PI / 6;
 	waveParams.density = 0.01f;
 	waveParams.frequency = 3.0f;
@@ -75,19 +75,17 @@ void WaterEffect::applyPresetParams()
 	WaterLightParams lightParams;
 	lightParams.decay = 10.0f;
 	lightParams.defaultAlpha = 0.9f;
-	lightParams.Angle = 5 * M_PI / 4;
+	lightParams.angle = 5 * M_PI / 4;
 	lightParams.minAlpha = 0.85f;
 	lightParams.minDistance = 0.0f;
 	setLightParams(lightParams);
 
 	WaterClickRippleParams waterClickRippleParams;
 	waterClickRippleParams.lifeTime = 5.0f;
-	waterClickRippleParams.rippleParams.amplitude = 60.0f;
-	waterClickRippleParams.rippleParams.density = 0.01f;
+	waterClickRippleParams.rippleParams.amplitude = 30.0f;
+	waterClickRippleParams.rippleParams.density = 0.02f;
 	waterClickRippleParams.rippleParams.frequency = 10.0f;
 	setDefaultClickRippleParams(waterClickRippleParams);
-
-	setGridSize(30);
 }
 
 /**
@@ -98,22 +96,6 @@ void WaterEffect::clearParams()
 {
 	WaterEffectParams defaultParams;
 	_params = defaultParams;
-}
-
-/**
- * @brief 设置水波纹网格的分辨率
- * @param gridSize 网格尺寸（必须大于0）
- * @details 修改网格大小后不会自动重新初始化网格顶点数据，需手动调用initGrid
- * @note 网格尺寸过大会影响性能，过小会降低波纹效果精度
- */
-void WaterEffect::setGridSize(int gridSize)
-{
-	SDL_assert(gridSize > 0);
-	if (gridSize <= 0)
-	{
-		return;
-	}
-	_params.gridSize = gridSize;
 }
 
 /**
@@ -299,14 +281,14 @@ void WaterEffect::_update(float time)
 
 		if (distance > _params.light.minDistance)
 		{
-			_vertices[i].color.a = (distance - _params.light.minDistance) * cos(atan2(-dy, dx) - _params.light.Angle) / _params.light.decay + _params.light.defaultAlpha;
+			_vertices[i].color.a = (distance - _params.light.minDistance) * cos(atan2(-dy, dx) - _params.light.angle) / _params.light.decay + _params.light.defaultAlpha;
 		}
 		else
 		{
 			_vertices[i].color.a = _params.light.defaultAlpha;
 		}
 
-		_vertices[i].color.a = SDL_clamp(_vertices[i].color.a, _verticesLast[i].color.a - 0.01f, _verticesLast[i].color.a + 0.01f);
+		_vertices[i].color.a = SDL_clamp(_vertices[i].color.a, _verticesLast[i].color.a - 0.1f, _verticesLast[i].color.a + 0.1f);
 		_vertices[i].color.a = SDL_clamp(_vertices[i].color.a, _params.light.minAlpha, 1.0f);
 
 		_verticesLast[i] = _vertices[i];
@@ -315,14 +297,23 @@ void WaterEffect::_update(float time)
 
 /**
  * @brief 初始化水波纹网格
+ * @param gridSize 网格尺寸（必须大于0）
+ * @param width 绘制区域宽度
+ * @param height 绘制区域高度
  * @details 根据给定大小和网格分辨率创建顶点数据：
  * 1. 创建渲染纹理
  * 2. 计算网格顶点位置
  * 3. 生成三角面索引
  * @note 绘制区域尺寸变化后需要重新调用此函数
  */
-void WaterEffect::initGrid(int width, int height)
+void WaterEffect::initGrid(int gridSize, int width, int height)
 {
+	SDL_assert(gridSize > 0);
+	if (gridSize <= 0)
+	{
+		return;
+	}
+	_params.gridSize = gridSize;
 	if (_waterEffectCanvas != nullptr)
 	{
 		SDL_DestroyTexture(_waterEffectCanvas);
@@ -331,7 +322,6 @@ void WaterEffect::initGrid(int width, int height)
 	_verticesOrigin.clear();
 	_vertices.clear();
 	_indices.clear();
-	int gridSize = _params.gridSize;
 
 	_waterEffectCanvas = SDL_CreateTexture(_renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_TARGET, width, height);
 	float cellW = static_cast<float>(width) / gridSize;

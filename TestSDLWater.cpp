@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
     WaterEffect waterEffect(window, renderer);
 
     waterEffect.applyPresetParams();
-    waterEffect.initGrid(windowWidth, windowHeight);
+    waterEffect.initGrid(200, windowWidth, windowHeight);
 
     bool is_active = true;
     while (is_active) {
