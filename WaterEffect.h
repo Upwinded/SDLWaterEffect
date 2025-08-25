@@ -135,7 +135,7 @@ public:
 	/**
 	 * @brief 设置水波纹网格的分辨率
 	 * @param gridSize 网格尺寸（必须大于0）
-	 * @details 修改网格大小后会自动重新初始化网格顶点数据
+	 * @details 修改网格大小后不会自动重新初始化网格顶点数据，需手动调用initGrid
 	 * @note 网格尺寸过大会影响性能，过小会降低波纹效果精度
 	 */
 	void setGridSize(int gridSize);
